@@ -1,0 +1,4 @@
+name: MurderMystery
+version: '${project.version}'
+main: net.matees.mm.MurderMystery
+api-version: 1.18
