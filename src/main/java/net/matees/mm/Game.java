@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.random.*;
 
 public class Game {
@@ -26,15 +27,21 @@ public class Game {
 
         // Enough for innocents, murderers, and detectives
         if(amountOfPlayers >= 3) {
+            // Set the murderer
 
-        }
+            // Set the innocents
+            for (Player player : this.normalPlayers) {
 
-        for(Player player : Bukkit.getOnlinePlayers()) {
-
+            }
         }
     }
 
     public void endGame() {
 
+    }
+
+    private Player choseRandomPlayer(List<Player> listToChooseFrom) {
+        Random rand = new Random();
+        return listToChooseFrom.get(rand.nextInt(listToChooseFrom.size()));
     }
 }
