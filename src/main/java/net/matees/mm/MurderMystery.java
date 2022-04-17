@@ -6,9 +6,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class MurderMystery extends JavaPlugin {
 
+    private static MurderMystery plugin;
+    private Game game;
     @Override
     public void onEnable() {
         // Plugin startup logic
+        plugin = this;
+        game = new Game();
 
         try {
             CommandManager.createCoreCommand(this,
@@ -27,5 +31,13 @@ public final class MurderMystery extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public static MurderMystery getPlugin() {
+        return plugin;
+    }
+
+    public Game getGame() {
+        return this.game;
     }
 }
