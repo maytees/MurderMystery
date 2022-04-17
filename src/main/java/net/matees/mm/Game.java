@@ -28,11 +28,13 @@ public class Game {
         // Enough for innocents, murderers, and detectives
         if(amountOfPlayers >= 3) {
             // Set the murderer
+            prepareMurderer(choseRandomPlayer(normalPlayers));
+
+            // Set the detective
+            prepareDetective(choseRandomPlayer(normalPlayers));
 
             // Set the innocents
-            for (Player player : this.normalPlayers) {
-
-            }
+            prepareInnocents();
         }
     }
 
@@ -43,5 +45,19 @@ public class Game {
     private Player choseRandomPlayer(List<Player> listToChooseFrom) {
         Random rand = new Random();
         return listToChooseFrom.get(rand.nextInt(listToChooseFrom.size()));
+    }
+
+    private void prepareMurderer(Player murderer) {
+        this.murderer = murderer;
+        normalPlayers.remove(murderer);
+    }
+
+    private void prepareDetective(Player detective) {
+        this.detective = detective;
+        normalPlayers.remove(detective);
+    }
+
+    private void prepareInnocents() {
+        this.innocents.addAll(this.normalPlayers);
     }
 }
